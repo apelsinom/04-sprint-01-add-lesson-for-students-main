@@ -5,10 +5,10 @@ const initialState = {
   error: null as string | null,
 }
 type AppStateType = typeof initialState
-export const appReducer = (state: AppStateType = initialState, action: ActionsType): AppStateType => {
+/*export const appReducer = (state: AppStateType = initialState, action: ActionsType): AppStateType => {
   switch (action.type) {
     default:
       return state
   }
 }
-type ActionsType = any
+type ActionsType = any*/
