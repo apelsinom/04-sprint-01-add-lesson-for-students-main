@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { fetchDesksTC } from './decks-reducer.ts'
 
 export const instance = axios.create({
   baseURL: 'https://api.flashcards.andrii.es',
@@ -11,6 +10,15 @@ export const desksAPI = {
   fetchDesks() {
     return instance.get<FetchDesksResponse>('v2/decks')
   },
+  /*  addDeck(name: string) {
+    return instance.post<Desk>('v1/decks', { name })
+  },*/
+  addDeck(params: AddDeckParams) {
+    return instance.post<Desk>('v1/decks', params)
+  },
+}
+export type AddDeckParams = {
+  name: string
 }
 export type FetchDesksResponse = {
   items: Desk[]
