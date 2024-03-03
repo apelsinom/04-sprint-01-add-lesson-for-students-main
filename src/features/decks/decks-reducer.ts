@@ -1,5 +1,4 @@
-import { Dispatch } from 'redux'
-import { desksAPI, Desk } from './decks-api.ts'
+import { Desk } from './decks-api.ts'
 
 const initialState = {
   decks: [] as Desk[], // todo: add type
@@ -18,10 +17,6 @@ export const decksReducer = (state: DecksState = initialState, action: DecksActi
       return state
   }
 }
-const setDesksAC = (desks: Desk[]) => ({ type: 'SET-DESKS', desks }) as const
-export const fetchDesksTC = () => (dispatch: Dispatch) => {
-  desksAPI.fetchDesks().then((res) => {
-    dispatch(setDesksAC(res.data.items))
-  })
-}
+export const setDesksAC = (desks: Desk[]) => ({ type: 'SET-DESKS', desks }) as const
+
 type DecksActions = ReturnType<typeof setDesksAC>
